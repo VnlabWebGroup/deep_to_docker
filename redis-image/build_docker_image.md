@@ -1,8 +1,8 @@
 COMMAND
 docker build .
-====================================
+===
 Log first build
-====================================
+===
 
 ```ending build context to Docker daemon  2.048kB
 Step 1/4 : FROM alpine
@@ -46,14 +46,16 @@ Removing intermediate container 3af13547ac54
 Successfully built 21b8ee5f9a87
 ```
 
-====================================
+===
+
 21b8ee5f9a87 is image id
+
 note the intermediate container created when build an image
 
 
-====================================
+===
 Rebuild docker image with cache
-====================================
+===
 ```hau@hau-IdeaPad-Flex-5-14ALC05:~/source_code/web_group_vnlab/deep_to_docker/redis-image$ docker build .
 Sending build context to Docker daemon  4.608kB
 Step 1/4 : FROM alpine
@@ -69,12 +71,12 @@ Step 4/4 : CMD ["redis-server"]
  ---> 21b8ee5f9a87
 Successfully built 21b8ee5f9a87
 ```
-=====================================
+============================
 Note the using cache flag
 
-=====================================
+============================
 Insert command disable cache from that command
-=====================================
+============================
 ```hau@hau-IdeaPad-Flex-5-14ALC05:~/source_code/web_group_vnlab/deep_to_docker/redis-image$ docker build .
 Sending build context to Docker daemon   5.12kB
 Step 1/5 : FROM alpine
@@ -119,19 +121,19 @@ Removing intermediate container 020d38271546
 Successfully built 12780c7a3899
 ```
 
-======================================
+===
 note that new image was created 12780c7a3899
 
 
 
-===================================
+===
 Option no-cache
-===================================
+===
 -> bo sung them
 
-===================================
+===
 Tag an image
-===================================
+===
 ```
 hau@hau-IdeaPad-Flex-5-14ALC05:~/source_code/web_group_vnlab/deep_to_docker/redis-image$ docker build -t localhost/redis:latest .
 Sending build context to Docker daemon  7.168kB
@@ -157,14 +159,14 @@ REPOSITORY            TAG       IMAGE ID       CREATED          SIZE
 localhost/redis       latest    12780c7a3899   18 minutes ago   124MB
 ```
 
-===================================
+===
 docker commit disadvantage
-===================================
+===
 khong co cai nhin cu the ve docker container
 
-===================================
+===
 docker exec -it
-===================================
+===
 -i interactive: terminal cua host va container co the trao doi du lieu vs nhau
 -t tty Allocate a pseudo-TTY | make sure all the text nicely format | auto-complete
 
