@@ -129,7 +129,20 @@ note that new image was created 12780c7a3899
 ===
 Option no-cache
 ===
--> bo sung them
+```Khi chạy lệnh docker build với 1 file Dockerfile lần đầu, 
+docker sẽ chạy lần lượt từng Step từ trên xuống dưới giống như trong Dockerfile.
+Tuy nhiên, kết quả của từng Step đó sẽ được cache lại (Lưu lại tạm thời trong máy tính).
+
+Vì vậy, nếu chạy lại lệnh docker build với cùng 1 file Dockerfile và file Dockerfile đó không có thay đổi gì so với lần trước, 
+thì docker sẽ ko chạy lại các Step trong Docker file mà sẽ lấy luôn kết quả đã được cache trước đó để build.
+
+---> Có những lệnh mà kết quả run khác nhau giữa các lần chạy thì sẽ không được run.
+---> Ví dụ: Lệnh apt-get update dùng để update lại apt-get mới nhất trước khi install package nào đó.
+---> Khi chạy docker build với cùng 1 Dockerfie nhiều lần, nếu Dockerfile đó không có thay đổi thì lệnh apt-get update này sẽ bị bỏ qua.
+---> Khi chạy docker build với cùng 1 Dockerfie nhiều lần, nếu muốn chạy lại toàn bộ step trong Dockerfile và không sử dụng data cache, 
+thì thêm option --no-cache vào lệnh docker build như sau:
+docker build --no-cache -t docker-whale .
+```
 
 ===
 Tag an image
@@ -162,12 +175,28 @@ localhost/redis       latest    12780c7a3899   18 minutes ago   124MB
 ===
 docker commit disadvantage
 ===
-khong co cai nhin cu the ve docker container
+```1. Sau khi cài đặt, cấu hình mọi thứ cần thiết vào container, ta có thể build 1 image mới dựa vào container đã có.
+
+2. Tuy nhiên, việc build image từ container có sẵn là VIỆC KHÔNG NÊN LÀM.
+
+3. Lý do là vì chúng ta không thể kiểm soát được, chúng ta đã cài đặt, cấu hình gì vào container trước đó. Không có gì lưu lại các command mà chúng ta đã chạy trước đó ở container.
+
+4. Theo tư tưởng "Infra as code", chuẩn nhất thì vẫn là viết ra Dockerfile để build image docker. Vì nhìn vào Dockerfile, chúng ta có thể biết rõ và kiểm soát được những gì được cài đặt và cấu hình trong image.
+```
 
 ===
 docker exec -it
 ===
--i interactive: terminal cua host va container co the trao doi du lieu vs nhau
--t tty Allocate a pseudo-TTY | make sure all the text nicely format | auto-complete
+```docker run --name status-test -it alpine /bin/sh
 
-neu chi chay moi -i sh thi van mo ra terminal cua container duoc nhung no se khong dep mat
+Option -it có nghĩa như sau:
+
+-i : interactive : Tạo ra tương tác 2 chiều giữa máy host và container. 
+Giúp container có thể nhận dữ liệu từ bàn phím của máy host, và máy host có thể nhận dữ liệu được gửi từ container để hiển thị ra MH.
+
+-t : TTY : Giúp máy host hiển thị dữ liệu nhận được từ container 1 cách trực quan, dễ hiểu.
+
+-> Combo lệnh --it + /bin/sh rất hay được sử dụng cùng nhau. 
+Giúp bật terminal của container, nhận và gửi dữ liệu từ máy host tới container, 
+sau đó hiển thị dữ liệu nhận được từ container 1 cách trực quan đẹp mắt trên MH máy host
+```
