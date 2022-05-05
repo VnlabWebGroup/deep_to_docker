@@ -71,12 +71,12 @@ Step 4/4 : CMD ["redis-server"]
  ---> 21b8ee5f9a87
 Successfully built 21b8ee5f9a87
 ```
-============================
+===
 Note the using cache flag
 
-============================
+===
 Insert command disable cache from that command
-============================
+===
 ```hau@hau-IdeaPad-Flex-5-14ALC05:~/source_code/web_group_vnlab/deep_to_docker/redis-image$ docker build .
 Sending build context to Docker daemon   5.12kB
 Step 1/5 : FROM alpine
