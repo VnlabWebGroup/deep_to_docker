@@ -129,7 +129,8 @@ note that new image was created 12780c7a3899
 ===
 Option no-cache
 ===
-```Khi chạy lệnh docker build với 1 file Dockerfile lần đầu, 
+```
+Khi chạy lệnh docker build với 1 file Dockerfile lần đầu, 
 docker sẽ chạy lần lượt từng Step từ trên xuống dưới giống như trong Dockerfile.
 Tuy nhiên, kết quả của từng Step đó sẽ được cache lại (Lưu lại tạm thời trong máy tính).
 
@@ -175,7 +176,8 @@ localhost/redis       latest    12780c7a3899   18 minutes ago   124MB
 ===
 docker commit disadvantage
 ===
-```1. Sau khi cài đặt, cấu hình mọi thứ cần thiết vào container, ta có thể build 1 image mới dựa vào container đã có.
+```
+1. Sau khi cài đặt, cấu hình mọi thứ cần thiết vào container, ta có thể build 1 image mới dựa vào container đã có.
 
 2. Tuy nhiên, việc build image từ container có sẵn là VIỆC KHÔNG NÊN LÀM.
 
@@ -187,7 +189,8 @@ docker commit disadvantage
 ===
 docker exec -it
 ===
-```docker run --name status-test -it alpine /bin/sh
+```
+docker run --name status-test -it alpine /bin/sh
 
 Option -it có nghĩa như sau:
 
