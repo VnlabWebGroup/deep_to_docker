@@ -1,7 +1,7 @@
 Docker-compose
 ===
 
-# Build our image by using Dockerfile
+### Build our image by using Dockerfile
 ===
 
 ```
@@ -42,7 +42,7 @@ Successfully tagged visits:latest
 ```
 docker-compose up
 ===
-# start 2 services by using docker-compose file
+### start 2 services by using docker-compose file
 
 ```
 vagrant@vagrant:/vagrant/deep_to_docker/visits$ docker-compose up
@@ -102,7 +102,7 @@ when using docker-compose to start service, it'll create a network by itself if 
 
 docker-compose up -d
 ===
-start service and run back-ground
+### start service and run back-ground
 
 ```
 vagrant@vagrant:/vagrant/deep_to_docker/visits$ docker-compose up -d
@@ -118,7 +118,7 @@ Removing network visits_default
 
 docker-compose down
 ===
-stop service
+### stop service
 ```
 vagrant@vagrant:/vagrant/deep_to_docker/visits$ docker-compose down
 Stopping visits_node-app_1     ... done
@@ -130,7 +130,7 @@ Removing network visits_defaul
 
 docker-compose up --build
 ===
-rebuild image and start service
+### rebuild image and start service
 
 ```
 vagrant@vagrant:/vagrant/deep_to_docker/visits$ docker-compose up --build
@@ -175,8 +175,8 @@ node-app_1      | Listening on port 8081
 ```
 restart policies
 ===
-# restart: 'no' => Do not automatically restart the container. (the default)
-# restart: on-failure => Restart the container if it exits due to an error, which manifests as a non-zero exit code. Optionally, limit the number of times the Docker daemon attempts to restart the container using the :max-retries option.
+### restart: 'no' => Do not automatically restart the container. (the default)
+### restart: on-failure => Restart the container if it exits due to an error, which manifests as a non-zero exit code. Optionally, limit the number of times the Docker daemon attempts to restart the container using the :max-retries option.
 
 ```
 redis-server_1  | 1:M 18 May 2022 18:33:41.927 * Ready to accept connections
@@ -187,8 +187,8 @@ node-app_1      |
 node-app_1      | Listening on port 8081
 visits_node-app_1 exited with code 0
 ```
-# restart: unless-stopped => Similar to always, except that when the container is stopped (manually or otherwise), it is not restarted even after Docker daemon restarts.
-# restart: always => Always restart the container if it stops. If it is manually stopped, it is restarted only when Docker daemon restarts or the container itself is manually restarted. 
+### restart: unless-stopped => Similar to always, except that when the container is stopped (manually or otherwise), it is not restarted even after Docker daemon restarts.
+### restart: always => Always restart the container if it stops. If it is manually stopped, it is restarted only when Docker daemon restarts or the container itself is manually restarted. 
 
 ```
 redis-server_1  | 1:M 18 May 2022 18:38:09.548 * Ready to accept connections
