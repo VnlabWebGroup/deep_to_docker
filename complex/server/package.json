@@ -1,21 +1,14 @@
 {
-  "name": "server",
-  "version": "1.0.0",
-  "description": "multi container apps | server side",
-  "main": "index.js",
+  "dependencies": {
+    "express": "4.16.3",
+    "pg": "8.0.3",
+    "redis": "2.8.0",
+    "cors": "2.8.4",
+    "nodemon": "1.18.3",
+    "body-parser": "*"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
     "start": "node index.js"
-  },
-  "author": "Agung Tuanany",
-  "license": "MIT",
-  "dependencies": {
-    "body-parser": "^1.19.0",
-    "cors": "^2.8.5",
-    "express": "^4.17.1",
-    "nodemon": "^1.19.1",
-    "pg": "^7.12.1",
-    "redis": "^2.8.0"
   }
 }
